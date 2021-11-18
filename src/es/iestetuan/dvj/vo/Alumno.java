@@ -15,6 +15,18 @@ public class Alumno {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public Alumno(int id_alumno, String nombre, String apellido1, String apellido2) {
+		super();
+		this.id_alumno = id_alumno;
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+	}
+
+
 
 	public int getId_alumno() {
 		return id_alumno;

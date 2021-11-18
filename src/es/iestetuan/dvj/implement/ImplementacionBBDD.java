@@ -129,18 +129,19 @@ public class ImplementacionBBDD implements IAlumno {
         try
         {
             Connection conexion =getConexion();
-            Statement stmt = conexion.createStatement();
-            String q1 = "select * from empleados WHERE emp_no = '" + idAlumno + "'" ;
-			ResultSet rs = stmt.executeQuery(q1);
+            String SentenciaSQL = "select * from empleados WHERE emp_no = '" + idAlumno + "'" ;
+            PreparedStatement statement = conexion.prepareStatement(SentenciaSQL);
+			ResultSet rs = statement.executeQuery();
 			 if (rs.next())
 			   {
-			       System.out.println("id_alumno : " + rs.getString(1));
-			       System.out.println("nombre :" + rs.getString(2));
-			       System.out.println("Primer Apellido :" + rs.getString(3));
-			       System.out.println("Segundo Apellido :" + rs.getString(4));
-			       System.out.println("nie :" + rs.getString(5));
-			       System.out.println("email :" + rs.getString(6));
-			       System.out.println("telefono :" + rs.getString(7));
+				   int id_Alumno = rs.getInt("id_alumno");
+				   String nombre = rs.getString("nombre");
+				   String apellido1 = rs.getString("apellido1");
+				   String apellido2 = rs.getString("apellido2");
+				   String nie = rs.getString("nie");
+				   String email = rs.getString("email");
+				   int telefono = rs.getInt("telefono");
+			       System.out.println(id_Alumno + nombre + apellido1 + apellido2 + nie + email + telefono);
 			       
 			    }
 			else
@@ -161,18 +162,19 @@ public class ImplementacionBBDD implements IAlumno {
         try
         {
             Connection conexion =getConexion();
-            Statement stmt = conexion.createStatement();
-            String q1 = "select * from empleados" ;
-			ResultSet rs = stmt.executeQuery(q1);
+            String SentenciaSQL = "select * from empleados" ;
+            PreparedStatement stmt = conexion.prepareStatement(SentenciaSQL);
+			ResultSet rs = stmt.executeQuery();
 			 if (rs.next())
 			   {
-			       System.out.println("id_alumno : " + rs.getString(1));
-			       System.out.println("nombre :" + rs.getString(2));
-			       System.out.println("Primer Apellido :" + rs.getString(3));
-			       System.out.println("Segundo Apellido :" + rs.getString(4));
-			       System.out.println("nie :" + rs.getString(5));
-			       System.out.println("email :" + rs.getString(6));
-			       System.out.println("telefono :" + rs.getString(7));
+				   int id_Alumno = rs.getInt("id_alumno");
+				   String nombre = rs.getString("nombre");
+				   String apellido1 = rs.getString("apellido1");
+				   String apellido2 = rs.getString("apellido2");
+				   String nie = rs.getString("nie");
+				   String email = rs.getString("email");
+				   int telefono = rs.getInt("telefono");
+			       System.out.println(id_Alumno + nombre + apellido1 + apellido2 + nie + email + telefono);
 			       
 			    }
 			else
